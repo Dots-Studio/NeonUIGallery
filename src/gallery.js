@@ -18,3 +18,8 @@ function ToggleVisibility(e) {
     e.style.display = 'none'
   }
 }
+
+window.onload = function() {
+  AttachContextMenu('body', 'menu')
+  AttachContextMenu('#galleryRightClickExample', 'galleryMenu')
+}

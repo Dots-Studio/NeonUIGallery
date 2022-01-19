@@ -54,7 +54,7 @@
         </ul>
     </div>
 
-    <nav class="NavView NavViewExpanded">
+    <nav class="NavViewExpanded">
         <ul>
             <button class="iconRegular iconButton" onclick="toggleClass('nav', 'NavViewExpanded', 'NavViewCollapsed')"></button>
             <li class="NavViewItem NavViewItemSelected">
@@ -115,14 +115,38 @@
             <h3>Chips help users quickly make selections, filter content, or trigger actions. They can also neutral and do nothing on click.</h3>
             <hr>
                 <div class="chipRow">
-                    <div class="Chip">Chip</div>
-                    <div class="Chip"><span class="iconRegular"></span>Chip with icon</div>
-                    <div class="chipSelected"><span class="iconRegular"></span>Chip with icon</div>
+                    <div class="Chip" id="Chip" onclick="toggleClass('#Chip', 'Chip', 'chipSelected')">Chip</div>
+                    <div class="Chip" id="ChipIcon"onclick="toggleClass('#ChipIcon', 'Chip', 'chipSelected')"><span class="iconRegular"></span>Chip with icon</div>
+                    <div class="chipSelected" id="ChipSelected" onclick="toggleClass('#ChipSelected', 'Chip', 'chipSelected')"><span class="iconRegular"></span>Selected chip</div>
                 </div>
             <br>
             <h4>Code example</h4>
             <pre class="code">
 &lt;div class=&quot;Chip&quot;&gt;Chip text&lt;/div&gt;
+            </pre>
+        </div>
+
+        <div class="galleryPage">
+            <h2>Banner</h2>
+            <h3>Banners display a message and related optional actions.</h3>
+            <hr>
+                <div class="Banner">
+                    <div class="flexRow">
+                        <span class="iconRegular"></span>
+                        Text
+                    </div>
+                    <button class="iconButton iconRegular" onclick="this.parentNode.remove()"></button>
+                </div>
+            <br>
+            <h4>Code example</h4>
+            <pre class="code">
+&lt;div class=&quot;Banner&quot; id=&quot;ID&quot;&gt;
+    &lt;div class=&quot;flexRow&quot;&gt;
+        &lt;span class=&quot;iconRegular&quot;&gt;&lt;/span&gt;
+        Text
+    &lt;/div&gt;
+    &lt;button class=&quot;iconButton iconRegular&quot; onclick=&quot;this.parentNode.remove()&quot;&gt;&lt;/button&gt;
+&lt;/div&gt;
             </pre>
         </div>
 
@@ -202,9 +226,45 @@
             <h4>Code example</h4>
             <pre class="code">
 &lt;div class=&quot;Card&quot;&gt;
+...
             </pre>
         </div>
         
+        <div class="galleryPage">
+            <h2>Context menus</h2>
+            <h3>Context menus are used to show extra options when the user right clicks on an item.</h3>
+            <hr>
+                <div id="galleryMenu" class="contextMenu">
+                    <ul>
+                        <li>
+                            <img src="Icon.svg">
+                            Item 1
+                        </li>
+                        <li>
+                            <img src="favicon.png">
+                            Item 2 
+                        </li>
+                    </ul>
+                </div>
+                <div id="galleryRightClickExample">Right click me</div>
+            <br>
+            <h4>Code example</h4>
+            <pre class="code">
+//HTML
+&lt;div id=&quot;ID&quot; class=&quot;contextMenu&quot;&gt;
+    &lt;ul&gt;
+        &lt;li&gt;
+            &lt;img src=&quot;Icon.svg&quot;&gt;
+            Item 1
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+//JS
+AttachContextMenu(&#39;body&#39;, &#39;ID&#39;)
+            </pre>
+        </div>
+
         <div class="galleryPage">
             <h2>Snackbars</h2>
             <h3>Snackbars are used to provide a temporary information to the user.</h3>
@@ -254,11 +314,11 @@ generateSnackbar('Snackbar content', 'Button text', 'Button id')
             <h3>Allows the user to quickly change a value.</h3>
             <hr>
             <br>
-            <Neon-Slider></Neon-Slider>
+            <Neon-Slider min="1" value="50" max="100"></Neon-Slider>
             <br>
             <h4>Code example</h4>
             <pre class="code">
-    &lt;Neon-Slider min=&quot;1&quot; value=&quot;50&quot; max=&quot;100&quot;&gt;&lt;/Neon-Slider&gt;
+&lt;Neon-Slider min=&quot;1&quot; value=&quot;50&quot; max=&quot;100&quot;&gt;&lt;/Neon-Slider&gt;
             </pre>
         </div>
 
@@ -268,6 +328,20 @@ generateSnackbar('Snackbar content', 'Button text', 'Button id')
             <div class="commandBar">
                 <button>Button</button>
             </div>
+        </div>
+
+        <div class="galleryPage">
+            <h2>Special</h2>
+            <hr>
+            <br>
+            <h4>Shine</h4>
+            <div class="Card shine">
+                ✨
+            </div>
+            <h4>Resizable</h4>
+            <div class="Card resize">Resizable</div>
+            <div class="Card resizeY">Resizable vertically</div>
+            <div class="Card resizeX">Resizable horizontally</div>
         </div>
 
         <div class="galleryPage">
@@ -286,25 +360,47 @@ generateSnackbar('Snackbar content', 'Button text', 'Button id')
             <h3>Tooltips display informative text when users hover over an element.</h3>
             <hr>
             <br>
+            <br>
             <div class="tooltipParent">
                 Hover on me
                 <span class="tooltip">Hello!</span>
             </div>
+            <br>
+            <h4>Code example</h4>
+            <pre class="code">
+&lt;div class=&quot;tooltipParent&quot;&gt;
+    Hover on me
+    &lt;span class=&quot;tooltip&quot;&gt;Tooltip content&lt;/span&gt;
+&lt;/div&gt;
+            </pre>
         </div>
 
         <div class="galleryPage">
             <h2>Accordions</h2>
-            <h3>todo</h3>
+            <h3>Accordions allow you to hide content by default, and show it when the user interacts with it.</h3>
             <hr>
-            <div class="accordion accordionExpanded" id="galleryAccordion">
+            <div class="accordionCollapsed" id="galleryAccordion">
                 <div class="accordionHeader">
-                <p>Accordion Title</p>
-                <button onclick="toggleClass('#galleryAccordion', 'accordionExpanded', 'accordionCollapsed')" class="iconButton iconRegular"></button>
+                    <p>Accordion Title</p>
+                    <button onclick="toggleClass('#galleryAccordion', 'accordionExpanded', 'accordionCollapsed')" class="iconButton iconRegular"></button>
                 </div>
                 <div class="accordionContent">
-                <p>Content</p>
+                    👋
                 </div>
             </div>
+            <br>
+            <h4>Code example</h4>
+            <pre class="code">
+&lt;div class=&quot;accordionCollapsed&quot; id=&quot;ID&quot;&gt;
+    &lt;div class=&quot;accordionHeader&quot;&gt;
+        &lt;p&gt;Accordion Title&lt;/p&gt;
+        &lt;button onclick=&quot;toggleClass(&#39;#ID&#39;, &#39;accordionExpanded&#39;, &#39;accordionCollapsed&#39;)&quot; class=&quot;iconButton iconRegular&quot;&gt;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;accordionContent&quot;&gt;
+        &#128075;
+    &lt;/div&gt;
+&lt;/div&gt;
+            </pre>
         </div>
 
     </main>
