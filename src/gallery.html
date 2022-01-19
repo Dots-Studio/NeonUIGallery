@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Dots Studio"/>
+    <meta name="description" content="Sample app that shows all NeonUI controls."/>
+    <title>NeonUI controls gallery</title>
+    <link rel="stylesheet" href="NeonUI/NeonUI.css"/>
+    <link rel="stylesheet" href="Styles.css"/>
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+</head>
+  <body class="LightMode flexRow">
+
+    <div class="snackbarParent">
+    </div>
+
+    <div class="overlay" id="gallerySheet">
+        <div class="sheet">
+            <ul>
+                <li class="sheetItem"><img src="Icon.svg">Sheet Item 1</li>
+                <li class="sheetItem"><img src="Icon.svg">Sheet Item 2</li>
+                <li class="sheetItem"><img src="Icon.svg">Sheet Item 3</li>
+                <li class="sheetItem" onclick="ToggleVisibility(sheet)"><img src="Icon.svg">Close sheet</li>
+            </ul>
+        </div>    
+    </div>
+
+    <div class="overlay" id="galleryDialog">
+        <div class="dialog">
+            <div class="dialogContent">
+                <h3>Dialog title</h3>
+                <h4>TextTextTextTextTextTextTextTextTextTextTextTextText</h4>  
+                <button class="accentButton" onclick="alert('Hello!')">Click me</button>
+            </div>
+                <div class="dialogBottom">
+                    <button class="accentButton" onclick="ToggleVisibility(dialog)">Done</button>
+                </div>
+        </div>
+    </div>
+
+    <div id="menu" class="contextMenu">
+        <ul>
+            <li class="contextMenuItem">
+                <img src="Icon.svg">
+                Item 1
+                <span class="contextMenuShortcut">Ctrl + W</span>
+            </li>
+            <li class="contextMenuItem">
+                <img src="Icon.svg">
+                Item 2
+                <span class="contextMenuShortcut">Ctrl + W</span>
+            </li>
+        </ul>
+    </div>
+
+    <nav class="NavView NavViewExpanded">
+        <ul>
+            <button class="iconRegular iconButton" onclick="toggleClass('nav', 'NavViewExpanded', 'NavViewCollapsed')"></button>
+            <li class="NavViewItem NavViewItemSelected">
+                <img src="Home.svg">
+                Home
+            </li>
+        </ul>
+    </nav>
+    
+    <main>
+        <button onclick="toggleTheme('Switch')">Toggle theme</button>
+
+        <div class="galleryPage">
+            <h2>Text</h2>
+            <h3>All text styles in NeonUI.</h3>
+            <hr>
+            <div class="flex-column">
+                <h1 class="heading">Heading</h1>
+                <h1>H1</h1>
+                <h2>H2</h2>
+                <h3>H3</h3>
+                <h4>H4</h4>
+                <h5>H5</h5>
+                <h6>H6</h6>
+                <p>P</p>
+                <p class="textSmall">Small text</p>
+                <p class="caption">Caption</p>
+            </div>
+        </div>
+
+        <div class="galleryPage">
+            <h2>Buttons</h2>
+            <h3>Buttons allow users to take actions and make choices when they interact with them.</h3>
+            <hr>
+            <div class="flexRow">
+                <div class="btn">DIV as button</div>
+                <button class="iconButton iconRegular"></button>
+                <button>Normal button</button>
+                <button class="accentButton">Accent Button</button>
+                <button class="linkButton">Link Button</button>
+                <a>Link</a>
+            </div>
+            <br>
+            <h4>Code example</h4>
+            <pre class="code">
+&lt;button class=&quot;iconButton iconRegular&quot;&gt;&lt;/button&gt;
+<br>
+&lt;button&gt;Normal button&lt;/button&gt;
+<br>
+&lt;button class=&quot;accentButton&quot;&gt;Accent Button&lt;/button&gt;
+<br>
+&lt;button class=&quot;linkButton&quot;&gt;Link Button&lt;/button&gt;
+            </pre>
+        </div>
+
+        <div class="galleryPage">
+            <h2>Chips</h2>
+            <h3>Chips help users quickly make selections, filter content, or trigger actions. They can also neutral and do nothing on click.</h3>
+            <hr>
+                <div class="chipRow">
+                    <div class="Chip">Chip</div>
+                    <div class="Chip"><span class="iconRegular"></span>Chip with icon</div>
+                    <div class="chipSelected"><span class="iconRegular"></span>Chip with icon</div>
+                </div>
+            <br>
+            <h4>Code example</h4>
+            <pre class="code">
+&lt;div class=&quot;Chip&quot;&gt;Chip text&lt;/div&gt;
+            </pre>
+        </div>
+
+        <div class="galleryPage">
+            <h2>Text Input</h2>
+            <h3>Text inputs let users enter and edit text.</h3>
+            <hr></hr>
+            <input type="text" placeholder="Placeholder text">
+            <textarea>Text</textarea>
+            <br>
+            <h4>Code example</h4>
+            <pre class="code">
+&lt;input type=&quot;text&quot; placeholder=&quot;Placeholder text&quot;&gt;
+<br>
+<br>
+&lt;textarea&gt;Text&lt;/textarea&gt;
+            </pre>
+        </div>
+
+        <div class="galleryPage">
+            <h2>Dialog</h2>
+            <h3>Dialogs inform users about a task that requires a decisions, or involve multiple tasks.</h3>
+            <hr>
+            <button onclick="ToggleVisibility(dialog)">Show dialog</button>
+            <br>
+            <h4>Code example</h4>
+            <code>
+&lt;div class=&quot;overlay&quot;&gt;
+<br>
+&lt;div class=&quot;dialog&quot;&gt;
+<br>
+    &lt;div class=&quot;dialogContent&quot;&gt;
+    <br>
+        &lt;h3&gt;Dialog title&lt;/h3&gt;
+        <br>
+        Your content goes here
+        <br>
+    &lt;/div&gt;
+    <br>
+        &lt;div class=&quot;dialogBottom&quot;&gt;
+        <br>
+            &lt;button&gt;Button&lt;/button&gt;
+            <br>
+        &lt;/div&gt;
+        <br>
+    &lt;/div&gt;
+    <br>
+&lt;/div&gt;
+            <br>
+            </code>
+        </div>
+
+        <div class="galleryPage">
+            <h2>Sheet</h2>
+            <h3>Used to allow the user to pick an action. Can be swiped away. Use a context menu on desktops.</h3>
+            <hr>
+            <button class="AccentButton" onclick="ToggleVisibility(sheet)">Open sheet</button>
+            <br>
+            <h4>Code example</h4>
+            <pre class="code">
+&lt;div class=&quot;overlay&quot;&gt;
+&lt;div class=&quot;sheet&quot;&gt;
+        &lt;ul&gt;
+            &lt;li class=&quot;sheetItem&quot;&gt;&lt;img src=&quot;Icon.svg&quot;&gt;Sheet Item&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;    
+&lt;/div&gt;
+            </pre>
+        </div>
+
+        <div class="galleryPage">
+            <h2>Cards</h2>
+            <h3>Cards contain content and actions.</h3>
+            <hr>
+                <div class="Card">Hello World!</div>
+            <br>
+            <h4>Code example</h4>
+            <pre class="code">
+&lt;div class=&quot;Card&quot;&gt;
+            </pre>
+        </div>
+        
+        <div class="galleryPage">
+            <h2>Snackbars</h2>
+            <h3>Snackbars are used to provide a temporary information to the user.</h3>
+            <hr>
+            <br>
+            <button onclick="generateSnackbar('Hello World!', 'Button', 'helloThere')">Show a snackbar</button>
+            <br>
+            <h4>Code example</h4>
+            <pre class="code">
+generateSnackbar('Snackbar content', 'Button text', 'Button id')
+            </pre>
+        </div>
+
+        <div class="galleryPage">
+            <h2>Progress</h2>
+            <h3>The controls below notify the user of the progress of an operation.</h3>
+            <hr>
+            <h4>Progress bar</h4>
+            <div class="progressBar">
+                <div id="galleryProgress" class="progressBarProgress"></div>
+            </div>
+            <button onclick="randomValue()">Change progress to a random value</button>
+            <br>
+            <h4>Indeterminate progress bar</h4>
+            <div class="progressBar">
+                <div class="progressBarIndeterminate"></div>
+            </div>
+            <br>
+            <h3>Progress Ring</h3>
+            <h4>You can customize the size of the progress ring by changing the size attribute. If you don't add it, the progress ring will be 40px.</h4>
+            <Neon-ProgressRing data-size="64"></Neon-ProgressRing>
+            <pre class="code">
+//Progress bar
+&lt;div class=&quot;progressBar&quot;&gt;
+    &lt;div class=&quot;progressBarProgress&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+//Indeterminate progress bar
+&lt;div class=&quot;progressBar&quot;&gt;
+    &lt;div class=&quot;progressBarIndeterminate&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+//Progress ring
+&lt;NeonUI-ProgressRing size=&quot;48&quot;&gt;&lt;/NeonUI-ProgressRing&gt;</pre>
+        </div>
+
+        <div class="galleryPage">
+            <h2>Slider</h2>
+            <h3>Allows the user to quickly change a value.</h3>
+            <hr>
+            <br>
+            <Neon-Slider></Neon-Slider>
+            <br>
+            <h4>Code example</h4>
+            <pre class="code">
+    &lt;Neon-Slider min=&quot;1&quot; value=&quot;50&quot; max=&quot;100&quot;&gt;&lt;/Neon-Slider&gt;
+            </pre>
+        </div>
+
+        <div class="galleryPage">
+                <h2>Command bar</h2>
+                <h3>Command bars provide users with easy access to your app's most common tasks. Usually placed at the top of the UI.</h3>
+            <div class="commandBar">
+                <button>Button</button>
+            </div>
+        </div>
+
+        <div class="galleryPage">
+            <h2>Checkbox & switch</h2>
+            <h3>Checkboxes allow users to select one or more items from a set. Switches toggle the state of a single item on or off.</h3>
+            <hr>
+            <Neon-Checkbox size="64"></Neon-Checkbox>
+            <br>
+            <br>
+            <br>
+            <Neon-Switch checked></Neon-Switch>    
+        </div>
+
+        <div class="galleryPage">
+            <h2>Tooltip</h2>
+            <h3>Tooltips display informative text when users hover over an element.</h3>
+            <hr>
+            <br>
+            <div class="tooltipParent">
+                Hover on me
+                <span class="tooltip">Hello!</span>
+            </div>
+        </div>
+
+        <div class="galleryPage">
+            <h2>Accordions</h2>
+            <h3>todo</h3>
+            <hr>
+            <div class="accordion accordionExpanded" id="galleryAccordion">
+                <div class="accordionHeader">
+                <p>Accordion Title</p>
+                <button onclick="toggleClass('#galleryAccordion', 'accordionExpanded', 'accordionCollapsed')" class="iconButton iconRegular"></button>
+                </div>
+                <div class="accordionContent">
+                <p>Content</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+  </body>
+  <script src="NeonUI/NeonUI.js"></script>
+  <script src="gallery.js"></script>
+</html>
